@@ -3,7 +3,7 @@ package schema_test
 import (
 	"fmt"
 
-	_ "github.com/ClickHouse/clickhouse-go/v2" // clickhouse
+	_ "github.com/roshaans/clickhouse-go/v2" // clickhouse
 	// _ "github.com/jackc/pgx/stdlib" // pgx
 	// _ "github.com/jbarham/gopgsqldriver" // postgres
 
@@ -14,7 +14,7 @@ import (
 // Database/user setup not needed: default database and schema are empty on Postgres.
 
 var _ = Describe("schema", func() {
-	Context("using github.Com/ClickHouse/clickhouse-go/v2 (Clickhouse)", func() {
+	Context("using github.Com/roshaans/clickhouse-go/v2 (Clickhouse)", func() {
 
 		const (
 			user = "default"
