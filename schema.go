@@ -198,14 +198,19 @@ func getDialect(db *sql.DB) (dialect, error) {
 // fetchColumnTypes queries the database and returns column's type metadata
 // for a single table or view.
 func fetchColumnTypes(db *sql.DB, query, schema, name string, escapeIdent func(string) string) ([]*sql.ColumnType, error) {
+	fmt.Println("name, schema, query: ", name, schema, query)
+	fmt.Println("fetching column types")
 	if schema == "" {
 		query = fmt.Sprintf(query, escapeIdent(name))
 	} else {
 		n := fmt.Sprintf("%s.%s", escapeIdent(schema), escapeIdent(name))
 		query = fmt.Sprintf(query, n)
 	}
+	fmt.Println("Making Query To Table: ", query)
 	rows, err := db.Query(query)
+	fmt.Println("Query Executed")
 	if err != nil {
+		fmt.Println("Error Occured")
 		return nil, err
 	}
 	defer rows.Close()
