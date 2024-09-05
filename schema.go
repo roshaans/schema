@@ -211,7 +211,7 @@ func fetchColumnTypes(db *sql.DB, query, schema, name string, escapeIdent func(s
 	fmt.Println("Query Executed")
 	if err != nil {
 		fmt.Println("Error Occured")
-		return nil, err
+		// return nil, err
 	}
 	defer rows.Close()
 	return rows.ColumnTypes()
